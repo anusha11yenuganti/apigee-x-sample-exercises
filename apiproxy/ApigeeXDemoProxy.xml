@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="10" name="ApigeeXDemoProxy">
+  <DisplayName/>
+  <Description/>
+  <CreatedAt>1774881207544</CreatedAt>
+  <LastModifiedAt>1774881248838</LastModifiedAt>
+  <BasePaths>/demo/v1</BasePaths>
+  <Policies>
+    <Policy>AM-SetTargetPath</Policy>
+    <Policy>AM-DisableTargetSuffix</Policy>
+    <Policy>RF-OperationNotFound</Policy>
+    <Policy>KVM-FetchConfigInfo</Policy>
+    <Policy>AM-ConfigureGoogleMapApiKey</Policy>
+    <Policy>J2X-TransformResponse</Policy>
+    <Policy>RF-UnAuthorisedAccess</Policy>
+    <Policy>RF-TooManyRequest</Policy>
+    <Policy>FC-SecuritySharedFlow</Policy>
+    <Policy>JS-ModifyFunctionResponse</Policy>
+  </Policies>
+  <ProxyEndpoints>
+    <ProxyEndpoint>default</ProxyEndpoint>
+  </ProxyEndpoints>
+  <Resources>
+    <Resource>jsc://JS-ModifyFunctionResponse</Resource>
+  </Resources>
+  <TargetEndpoints>
+    <TargetEndpoint>default</TargetEndpoint>
+    <TargetEndpoint>function-app</TargetEndpoint>
+  </TargetEndpoints>
+</APIProxy>

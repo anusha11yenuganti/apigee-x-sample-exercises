@@ -1,0 +1,8 @@
+var targetResponse = context.getVariable("response.content");
+print("Test : " +targetResponse);
+var finalResponse = {
+  "message" : targetResponse + " How are you?"
+};
+
+context.setVariable("response.content",JSON.stringify(finalResponse));
+context.setVariable("response.header.content-type","application/json");

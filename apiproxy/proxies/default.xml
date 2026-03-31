@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+  <Description/>
+  <FaultRules>
+    <FaultRule name="InvalidAccess">
+      <Step>
+        <Name>RF-UnAuthorisedAccess</Name>
+      </Step>
+      <Condition>(fault.name = "FailedToResolveAPIKey" || fault.name = "InvalidApiKey")</Condition>
+    </FaultRule>
+    <FaultRule name="TooManyRequest">
+      <Step>
+        <Name>RF-TooManyRequest</Name>
+      </Step>
+      <Condition>(fault.name = "QuotaViolation")</Condition>
+    </FaultRule>
+  </FaultRules>
+  <PreFlow name="PreFlow">
+    <Request>
+      <Step>
+        <Name>FC-SecuritySharedFlow</Name>
+      </Step>
+      <Step>
+        <Name>KVM-FetchConfigInfo</Name>
+      </Step>
+    </Request>
+    <Response/>
+  </PreFlow>
+  <PostFlow name="PostFlow">
+    <Request/>
+    <Response/>
+  </PostFlow>
+  <Flows>
+    <Flow name="/searchPlace">
+      <Description/>
+      <Request>
+        <Step>
+          <Name>AM-SetTargetPath</Name>
+        </Step>
+      </Request>
+      <Response>
+        <Step>
+          <Condition>(request.header.Accept = "application/xml")</Condition>
+          <Name>J2X-TransformResponse</Name>
+        </Step>
+      </Response>
+      <Condition>(proxy.pathsuffix MatchesPath "/searchPlace") and (request.verb = "GET")</Condition>
+    </Flow>
+    <Flow name="/gcp/function">
+      <Description/>
+      <Request>
+      </Request>
+      <Response>
+        <Step>
+          <Name>JS-ModifyFunctionResponse</Name>
+        </Step>
+      </Response>
+      <Condition>(proxy.pathsuffix MatchesPath "/gcp/function") and (request.verb = "POST")</Condition>
+    </Flow>
+    <Flow name="Resource Not Found">
+      <Description/>
+      <Request>
+        <Step>
+          <Name>RF-OperationNotFound</Name>
+        </Step>
+      </Request>
+      <Response/>
+    </Flow>
+  </Flows>
+  <HTTPProxyConnection>
+    <BasePath>/demo/v1</BasePath>
+  </HTTPProxyConnection>
+  <RouteRule name="function-app">
+    <TargetEndpoint>function-app</TargetEndpoint>
+    <Condition>(proxy.pathsuffix MatchesPath "/gcp/function") and (request.verb = "POST")</Condition>
+  </RouteRule>
+  <RouteRule name="default">
+    <TargetEndpoint>default</TargetEndpoint>
+  </RouteRule>
+</ProxyEndpoint>

@@ -1,0 +1,99 @@
+{
+  "info": {
+    "name": "apigee_x_tests",
+    "description": null,
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Seach Place Request",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "apikey",
+            "value": "p0Ua6BTCTaE3neFvZ3MGV03AeHlDhTBOCWsCvMhgo06JYAKB",
+            "disabled": false,
+            "type": "default"
+          }
+        ],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "https://34.36.254.57.nip.io/demo/v1/searchPlace?query=Taj Hotal Mumbai",
+          "protocol": "https",
+          "host": [
+            "34",
+            "36",
+            "254",
+            "57",
+            "nip",
+            "io"
+          ],
+          "path": [
+            "demo",
+            "v1",
+            "searchPlace"
+          ],
+          "query": [
+            {
+              "key": "query",
+              "value": "Taj Hotal Mumbai"
+            }
+          ],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "POST GCP Functions",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "apikey",
+            "value": "p0Ua6BTCTaE3neFvZ3MGV03AeHlDhTBOCWsCvMhgo06JYAKB",
+            "disabled": false,
+            "type": "default"
+          }
+        ],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "https://34.36.254.57.nip.io/demo/v1/gcp/function",
+          "protocol": "https",
+          "host": [
+            "34",
+            "36",
+            "254",
+            "57",
+            "nip",
+            "io"
+          ],
+          "path": [
+            "demo",
+            "v1",
+            "gcp",
+            "function"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Anusha\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "variable": []
+}

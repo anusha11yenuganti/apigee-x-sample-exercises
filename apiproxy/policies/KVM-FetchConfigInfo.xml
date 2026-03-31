@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations continueOnError="false" enabled="true" name="KVM-FetchConfigInfo" mapIdentifier="GeneralConfig">
+  <DisplayName>KVM-FetchConfigInfo</DisplayName>
+  <ExclusiveCache>false</ExclusiveCache>
+  <ExpiryTimeInSecs>300</ExpiryTimeInSecs>
+  <Get assignTo="googleMapKey">
+    <Key>
+      <Parameter>google-map-key</Parameter>
+    </Key>
+  </Get>
+  <Scope>environment</Scope>
+</KeyValueMapOperations>
