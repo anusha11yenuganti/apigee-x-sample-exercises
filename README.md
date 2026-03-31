@@ -1,6 +1,6 @@
 ## Overview
 
-This repository contains sample exercises for Apigee X API proxies. It is intended to help developers learn and practice key Apigee X features, including API proxy creation, policies, security, and analytics.
+This repository contains sample exercises for Apigee X API proxies. It is intended to help developers learn and practice key Apigee X features, including API proxy creation, policies, security, and analytics. Shared flows are used to demonstrate how to reuse common policies across multiple proxies.
 
 ## Contents
 
@@ -21,7 +21,13 @@ This repository contains sample exercises for Apigee X API proxies. It is intend
    ```sh
    git clone https://github.com/your-org/apigee-x-sample-exercises.git
    ```
-2. Follow the instructions in each exercise folder to deploy and test the proxies.
+2. Clone the shared flow repository:
+
+   ```sh
+   git clone https://github.com/your-org/apigee-x-shared-flow.git
+   ```
+
+3. Follow the instructions in each exercise folder to deploy and test the proxies.
 
 ## Documentation
 
